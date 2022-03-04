@@ -134,6 +134,22 @@ local data = {
 }
 ```
 
+**Draw**
+
+```lua
+local data = {
+  draw = true -- Required
+}
+```
+
+If you want to disable the text you have drawn you can simply do that by triggering the DrawText function and just sending data.draw as false.
+
+Like this
+
+```lua
+exports.rr_uilib:DrawText({draw = false})
+```
+
 **Position**
 
 ```lua
