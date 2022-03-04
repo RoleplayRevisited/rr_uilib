@@ -4,8 +4,6 @@
 
 <br>
 
-### Potential bug with drawText will fix asap
-
 # **RR UILib - The UI framework for your fivem server**
 
 This is a new and improved UI resource that is more customizable then my old resource rr_notify. And it also does not only create notification, you can also draw text that stays on the screen until you disable it.
@@ -34,11 +32,13 @@ The notifications come with a wide variaty of options so you can change everythi
 Through exports:
 
 `Clientsided`
+
 ```lua
 exports.rr_uilib:Notify(data)
 ```
 
 `Serversided`
+
 ```lua
 exports.rr_uilib:Notify(source, data)
 ```
