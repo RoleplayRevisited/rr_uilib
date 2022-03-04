@@ -4,8 +4,8 @@ end
 
 exports('Notify', Notify)
 
-RegisterNetEvent('rr_notify:Notify')
-AddEventHandler('rr_notify:Notify', function(props)
+RegisterNetEvent('rr_uilib:Notify')
+AddEventHandler('rr_uilib:Notify', function(props)
   Notify(props)
 end)
 
@@ -15,7 +15,7 @@ end
 
 exports('DrawText', DrawText)
 
-RegisterNetEvent('rr_notify:DrawText')
-AddEventHandler('rr_notify:DrawText', function(props)
+RegisterNetEvent('rr_uilib:DrawText')
+AddEventHandler('rr_uilib:DrawText', function(props)
   DrawText(props)
 end)

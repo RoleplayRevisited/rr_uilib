@@ -2,21 +2,6 @@ import React from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useNuiEvent } from "../hooks/useNuiEvent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { debugData } from "../utils/debugData";
-
-debugData([
-	{
-		action: "notify",
-		data: {
-			type: "primary", // Options: primary, success, error, warning, default,
-			style: "colored", // Options: default, dark, colored,
-			msg: "This is an example",
-			icon: "fa-solid fa-vial", // Font-awesome 6.0.0,
-			position: "top-right", // Options: top-left, top-center, top-right, bottom-left, bottom-center,	bottom-right
-			duration: 10000,
-		},
-	},
-]);
 
 const Notification: React.FC = () => {
 	let colorClass = "";
@@ -122,8 +107,8 @@ const Notification: React.FC = () => {
 				</div>
 			</div>,
 			{
-				position: data.position,
-				duration: data.duration,
+				position: data.position ? data.position : "top-right",
+				duration: data.duration ? data.duration : 5000,
 			}
 		);
 	};

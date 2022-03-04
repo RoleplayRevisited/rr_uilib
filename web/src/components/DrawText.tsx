@@ -9,11 +9,11 @@ const DrawText: React.FC = () => {
 	const handlePosition = (data: any) => {
 		let classes = "h-screen p-7 flex ";
 
-		if (data.options.style == "dark") {
+		if (data.style == "dark") {
 			classes += "dark ";
 		}
 
-		let pos = data.options.position;
+		let pos = data.position;
 		if (!pos) pos = "top-middle";
 
 		if (pos.includes("bottom")) {
@@ -32,12 +32,11 @@ const DrawText: React.FC = () => {
 	};
 
 	const handleStyle = (data: any) => {
-		let options = data.options;
 		let classes = "p-3 rounded-lg ";
 
-		if (options.style === "white") {
+		if (data.style === "white") {
 			classes += "bg-white text-slage-600";
-		} else if (options.style === "dark") {
+		} else if (data.style === "dark") {
 			classes += "bg-slate-700 text-white";
 		} else {
 			// Transparent
