@@ -16,6 +16,10 @@ const DrawText: React.FC = () => {
 		let pos = data.position;
 		if (!pos) pos = "top-middle";
 
+		if (pos.includes("top")) {
+			classes += "items-start";
+		}
+
 		if (pos.includes("bottom")) {
 			classes += "items-end";
 		}
