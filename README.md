@@ -4,6 +4,8 @@
 
 <br>
 
+### Potential bug with drawText will fix asap
+
 # **RR UILib - The UI framework for your fivem server**
 
 This is a new and improved UI resource that is more customizable then my old resource rr_notify. And it also does not only create notification, you can also draw text that stays on the screen until you disable it.
