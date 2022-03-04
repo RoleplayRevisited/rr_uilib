@@ -31,8 +31,14 @@ The notifications come with a wide variaty of options so you can change everythi
 
 Through exports:
 
+`Clientsided`
 ```lua
 exports.rr_uilib:Notify(data)
+```
+
+`Serversided`
+```lua
+exports.rr_uilib:Notify(source, data)
 ```
 
 Through event:
