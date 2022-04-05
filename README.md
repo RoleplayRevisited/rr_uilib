@@ -23,6 +23,45 @@ This script currently has 2 ui components.
 
 The notifications come with a wide variaty of options so you can change everything to your liking.
 
+### **Simple Notification**
+
+The simple notifcation handles the style and icons for you by default. This is a way simpler way of sending messages that needs less arguments. If you need something more customizable then I recommend going for the normal message function
+
+<br>
+
+#### **How to use:**
+
+Through exports:
+
+`Clientsided`
+
+```lua
+-- msgType: string
+--  -options: success, error, warning, primary, default
+-- msg: string
+exports.rr_uilib:NotifyS(msgType, msg)
+```
+
+`Serversided`
+
+```lua
+-- source: number
+-- msgType: string
+--  -options: success, error, warning, primary, default
+-- msg: string
+exports.rr_uilib:NotifyS(source, msgType, msg)
+```
+
+Through event:
+
+```lua
+-- source: number
+-- msgType: string
+--  -options: success, error, warning, primary, default
+-- msg: string
+TriggerClientEvent("rr_uilib:NotifyS", source, msgType, msg)
+```
+
 ### **Notifications**
 
 <br>
@@ -166,7 +205,7 @@ local data = {
 }
 ```
 
-Options: `"top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right", "middle-left", "middle-center", "middle-right"`
+Options: `"top-left", "top-middle", "top-right", "bottom-left", "bottom-middle", "bottom-right", "center-left", "center-middle", "center-right"`
 
 **Style**
 
