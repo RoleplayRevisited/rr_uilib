@@ -39,7 +39,8 @@ Through exports:
 -- msgType: string
 --  -options: success, error, warning, primary, default
 -- msg: string
-exports.rr_uilib:NotifyS(msgType, msg)
+-- useSound | optional: boolean
+exports.rr_uilib:NotifyS(msgType, msg, useSound)
 ```
 
 `Serversided`
@@ -49,7 +50,8 @@ exports.rr_uilib:NotifyS(msgType, msg)
 -- msgType: string
 --  -options: success, error, warning, primary, default
 -- msg: string
-exports.rr_uilib:NotifyS(source, msgType, msg)
+-- useSound | optional: boolean
+exports.rr_uilib:NotifyS(source, msgType, msg, useSound)
 ```
 
 Through event:
@@ -59,7 +61,8 @@ Through event:
 -- msgType: string
 --  -options: success, error, warning, primary, default
 -- msg: string
-TriggerClientEvent("rr_uilib:NotifyS", source, msgType, msg)
+-- useSound | optional: boolean
+TriggerClientEvent("rr_uilib:NotifyS", source, msgType, msg, useSound)
 ```
 
 ### **Notifications**
@@ -154,6 +157,18 @@ local data = {
   duration = 1000 -- Time in milliseconds
 }
 ```
+
+**Sound**
+You can import your .mp3 files into the web/public/sounds path. To retrieve them, simply enter the file name in the sound field as in the example below.Instead the volume field is used to set the sound volume.
+
+```lua
+local data = {
+  sound = "soundName",
+  volume = 0.1 -- Optional / Default 0.5
+}
+```
+
+Options: `"success", "info", "error"`
 
 ### **DrawText**
 

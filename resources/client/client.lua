@@ -9,11 +9,24 @@ AddEventHandler('rr_uilib:Notify', function(props)
   Notify(props)
 end)
 
-function NotifyS(msgType, msg)
+function NotifyS(msgType, msg, sound)
+  local useSound = false
+
   local data = {
     type = msgType,
     msg = msg,
   }
+
+  if sound then 
+    useSound = true
+    if msgType == "success" then 
+      data.sound = "success"
+    elseif msgType == "error" then 
+      data.sound = "error"
+    else 
+      data.sound = "info"
+    end 
+  end 
 
   if msgType == "success" then 
     data.icon = "fa-solid fa-check"
@@ -31,8 +44,8 @@ function NotifyS(msgType, msg)
 end 
 
 RegisterNetEvent('rr_uilib:NotifyS')
-AddEventHandler('rr_uilib:NotifyS', function(msgType, msg)
-  NotifyS(msgType, msg)
+AddEventHandler('rr_uilib:NotifyS', function(msgType, msg, sound)
+  NotifyS(msgType, msg, sound)
 end)
 
 exports("NotifyS", NotifyS)

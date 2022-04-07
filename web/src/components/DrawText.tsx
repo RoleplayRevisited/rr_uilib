@@ -9,7 +9,7 @@ const DrawText: React.FC = () => {
 	const handlePosition = (data: any) => {
 		let classes = "h-screen p-7 flex ";
 
-		if (data.style == "dark") {
+		if (data.style === "dark") {
 			classes += "dark ";
 		}
 

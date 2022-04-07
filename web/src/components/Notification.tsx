@@ -9,30 +9,24 @@ const Notification: React.FC = () => {
 	const handleBackgroundClasses = (data: any) => {
 		if (!data.type) data.type = "success";
 
-		let oldClass =
-			"inline-flex flex-shrink-0 justify-center items-center w-8 h-8 rounded-lg ";
+		let oldClass = "inline-flex flex-shrink-0 justify-center items-center w-8 h-8 rounded-lg ";
 
 		if (data.style && data.style !== "colored") {
 			switch (data.type) {
 				case "success":
-					oldClass +=
-						"text-green-500 bg-green-200 dark:bg-green-800 dark:text-green-200";
+					oldClass += "text-green-500 bg-green-200 dark:bg-green-800 dark:text-green-200";
 					break;
 				case "error":
-					oldClass +=
-						"text-red-600 bg-red-200 dark:bg-red-800 dark:text-red-200";
+					oldClass += "text-red-600 bg-red-200 dark:bg-red-800 dark:text-red-200";
 					break;
 				case "primary":
-					oldClass +=
-						"text-blue-600 bg-blue-200 dark:bg-blue-800 dark:text-blue-200";
+					oldClass += "text-blue-600 bg-blue-200 dark:bg-blue-800 dark:text-blue-200";
 					break;
 				case "warning":
-					oldClass +=
-						"text-yellow-600 bg-yellow-200 dark:bg-yellow-600 dark:text-yellow-200";
+					oldClass += "text-yellow-600 bg-yellow-200 dark:bg-yellow-600 dark:text-yellow-200";
 					break;
 				case "default":
-					oldClass +=
-						"text-slate-600 bg-slate-200 dark:text-slate-200 dark:bg-slate-700";
+					oldClass += "text-slate-600 bg-slate-200 dark:text-slate-200 dark:bg-slate-700";
 					break;
 			}
 		} else if (data.style === "colored") {
@@ -44,8 +38,7 @@ const Notification: React.FC = () => {
 	};
 
 	const handleWrapperClasses = (data: any) => {
-		let className =
-			"flex items-center p-3 mb-0.5 w-full max-w-xs shadow rounded-lg ";
+		let className = "flex items-center p-3 mb-0.5 w-full max-w-xs shadow rounded-lg ";
 
 		if (!data.style) data.style = "default";
 
@@ -92,6 +85,13 @@ const Notification: React.FC = () => {
 		return "";
 	};
 
+	const handleSoundClass = (soundName: string, soundVolume: number = 0.5) => {
+		const soundFolder = process.env.PUBLIC_URL + "/sounds/";
+		let sound = new Audio(`${soundFolder + soundName}.mp3`);
+		sound.volume = soundVolume;
+		sound.play();
+	};
+
 	const handleNotification = (data: any) => {
 		const bgClass = handleBackgroundClasses(data);
 		const wrapperClass = handleWrapperClasses(data);
@@ -113,8 +113,11 @@ const Notification: React.FC = () => {
 		);
 	};
 
-	useNuiEvent<any>("notify", data => {
+	useNuiEvent<any>("notify", (data) => {
 		handleNotification(data);
+		if (data.sound && data.sound !== null && data.sound !== "") {
+			handleSoundClass(data.sound, data.volume);
+		}
 	});
 	return (
 		<div>
