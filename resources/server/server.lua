@@ -3,8 +3,8 @@ function Notify(source, props)
 end
 exports('Notify', Notify)
 
-function NotifyS(source, msgType, msg)
-    TriggerClientEvent('rr_uilib:NotifyS', source, msgType, msg)
+function NotifyS(source, msgType, msg, useSound)
+    TriggerClientEvent('rr_uilib:NotifyS', source, msgType, msg, useSound)
 end
 exports('NotifyS', NotifyS)
 
