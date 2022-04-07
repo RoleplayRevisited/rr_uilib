@@ -155,6 +155,17 @@ local data = {
 }
 ```
 
+**Sound**
+You can import your .mp3 files into the web/public/sounds path. To retrieve them, simply enter the file name in the sound field as in the example below.Instead the volume field is used to set the sound volume.
+
+```lua
+local data = {
+  sound = "soundName",
+  volume = 0.1
+}
+```
+Options: `"success", "info", "error"`
+
 ### **DrawText**
 
 <br>

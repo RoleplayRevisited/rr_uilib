@@ -92,6 +92,13 @@ const Notification: React.FC = () => {
 		return "";
 	};
 
+	const handleSoundClass = (data: any) => {
+		const soundFolder = process.env.PUBLIC_URL + "/sounds/";
+		let sound =  new Audio(soundFolder + data.sound + '.mp3');
+		sound.volume = data.volume;
+		sound.play();
+	};
+
 	const handleNotification = (data: any) => {
 		const bgClass = handleBackgroundClasses(data);
 		const wrapperClass = handleWrapperClasses(data);
@@ -115,6 +122,9 @@ const Notification: React.FC = () => {
 
 	useNuiEvent<any>("notify", data => {
 		handleNotification(data);
+		if(data.sound && data.sound !== null && data.sound !== "" && data.volume && data.volume !== null && data.volume !== ""){
+			handleSoundClass(data);
+		}
 	});
 	return (
 		<div>
